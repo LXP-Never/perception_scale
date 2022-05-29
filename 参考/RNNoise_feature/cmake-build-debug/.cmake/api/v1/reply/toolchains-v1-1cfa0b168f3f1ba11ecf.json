@@ -1,0 +1,75 @@
+{
+	"kind" : "toolchains",
+	"toolchains" : 
+	[
+		{
+			"compiler" : 
+			{
+				"id" : "GNU",
+				"implicit" : 
+				{
+					"includeDirectories" : 
+					[
+						"D:/Program Files/JetBrains/CLion 2021.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include",
+						"D:/Program Files/JetBrains/CLion 2021.3.4/bin/mingw/include",
+						"D:/Program Files/JetBrains/CLion 2021.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed",
+						"D:/Program Files/JetBrains/CLion 2021.3.4/bin/mingw/x86_64-w64-mingw32/include"
+					],
+					"linkDirectories" : 
+					[
+						"D:/Program Files/JetBrains/CLion 2021.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0",
+						"D:/Program Files/JetBrains/CLion 2021.3.4/bin/mingw/lib/gcc",
+						"D:/Program Files/JetBrains/CLion 2021.3.4/bin/mingw/x86_64-w64-mingw32/lib",
+						"D:/Program Files/JetBrains/CLion 2021.3.4/bin/mingw/lib"
+					],
+					"linkFrameworkDirectories" : [],
+					"linkLibraries" : 
+					[
+						"mingw32",
+						"gcc",
+						"moldname",
+						"mingwex",
+						"kernel32",
+						"pthread",
+						"advapi32",
+						"shell32",
+						"user32",
+						"kernel32",
+						"iconv",
+						"mingw32",
+						"gcc",
+						"moldname",
+						"mingwex",
+						"kernel32"
+					]
+				},
+				"path" : "D:/Program Files/JetBrains/CLion 2021.3.4/bin/mingw/bin/gcc.exe",
+				"version" : "11.2.0"
+			},
+			"language" : "C",
+			"sourceFileExtensions" : 
+			[
+				"c",
+				"m"
+			]
+		},
+		{
+			"compiler" : 
+			{
+				"implicit" : {},
+				"path" : "D:/Program Files/JetBrains/CLion 2021.3.4/bin/mingw/bin/windres.exe"
+			},
+			"language" : "RC",
+			"sourceFileExtensions" : 
+			[
+				"rc",
+				"RC"
+			]
+		}
+	],
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 0
+	}
+}
