@@ -1,4 +1,4 @@
-https://github.com/bingo-todd/Gammatone-filters
+[项目地址](https://github.com/bingo-todd/Gammatone-filters)
 
 Same doc with math equations properly displayed can be found in [github page](https://bingo-todd.github.io/work/2019/09/27/gtf_baseband_implementation.html)
 

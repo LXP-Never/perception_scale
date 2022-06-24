@@ -3,6 +3,7 @@
 # Date: 2022/5/24
 """
 Gammatone-filter-banks implementation
+参考自：https://github.com/SuperKogito/spafe，而spage参考下文
 based on https://github.com/mcusi/gammatonegram/
 """
 import librosa
@@ -10,6 +11,7 @@ import librosa.display
 import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.ticker import FuncFormatter
+from spafe.features.gfcc import gfcc
 
 plt.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
 plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示符号
@@ -27,14 +29,15 @@ def generate_center_frequencies(min_freq, max_freq, filter_nums):
     :return: 一组中心频率
     """
     # init vars
-    n = np.linspace(1, filter_nums, filter_nums)
+    # n = np.linspace(1, filter_nums, filter_nums)      # 你也可以试试这个
+    n = np.array(range(nfilts)) + 2     # spafe用的是这个
     c = EarQ * minBW
 
     # 计算中心频率
     cfreqs = (max_freq + c) * np.exp((n / filter_nums) * np.log(
         (min_freq + c) / (max_freq + c))) - c
 
-    return cfreqs
+    return cfreqs[::-1]
 
 
 def compute_gain(fcs, B, wT, T):
@@ -161,8 +164,6 @@ if __name__ == "__main__":
     print(filterbanks.shape)    # (22, 257)
     plt.plot(x * fs_bin, filterbanks.T)
 
-    # plt.xlim(0)  # 坐标轴的范围
-    # plt.ylim(0, 1)
     plt.tight_layout()
     plt.grid(linestyle='--')
     plt.show()
@@ -174,6 +175,7 @@ if __name__ == "__main__":
 
     filter_banks = np.dot(filterbanks, mag)  # (M,F)*(F,T)=(M,T)
     filter_banks = 20 * np.log10(filter_banks)  # dB
+
 
     plt.figure()
     librosa.display.specshow(filter_banks, sr=fs, x_axis='time', y_axis='linear', cmap="jet")
