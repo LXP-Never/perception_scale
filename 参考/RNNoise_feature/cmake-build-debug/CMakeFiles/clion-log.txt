@@ -1,4 +1,0 @@
-C:\Windows\system32\wsl.exe --distribution Ubuntu-18.04 --exec /bin/bash -c "export CLION_IDE=TRUE && export JETBRAINS_IDE=TRUE && cd /mnt/c/Users/anker/Desktop/Perceptual_scale/参考/RNNoise_feature/cmake-build-debug && /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/usr/bin/make -DCMAKE_C_COMPILER=/usr/bin/cc '-DCMAKE_CXX_COMPILER=/usr/bin/c++' -G 'CodeBlocks - Unix Makefiles' /mnt/c/Users/anker/Desktop/Perceptual_scale/参考/RNNoise_feature; exitcode=$?; sleep 0.001; (exit $exitcode)"
--- Configuring done
--- Generating done
--- Build files have been written to: /mnt/c/Users/anker/Desktop/Perceptual_scale/鍙傝��/RNNoise_feature/cmake-build-debug

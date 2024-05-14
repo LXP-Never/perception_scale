@@ -1,3 +1,0 @@
-/mnt/c/Users/anker/Desktop/Perceptual_scale/参考/RNNoise_feature/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/anker/Desktop/Perceptual_scale/参考/RNNoise_feature/cmake-build-debug/CMakeFiles/C_demo.dir
-/mnt/c/Users/anker/Desktop/Perceptual_scale/参考/RNNoise_feature/cmake-build-debug/CMakeFiles/edit_cache.dir
