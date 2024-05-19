@@ -9,6 +9,16 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter
 
 
+def hz2mel(hz):
+    """ Hz to Mels """
+    return 2595 * np.log10(1 + hz / 700.0)
+
+
+def hz2erb_percepNet(hz):
+    """ Hz to Erbs """
+    return 9.265 * np.log(1 + hz / (24.7 * 9.265))
+
+
 def hz2erb_1983(f):
     """ 中心频率f(Hz) f to ERB(Hz) """
     f = f / 1000.0
@@ -60,13 +70,17 @@ if __name__ == "__main__":
     erb_2002 = Hz2erb_2002(hz)
     Hz2erb_matlab = Hz2erb_matlab(hz)
     Hz2erb_other = Hz2erb_other(hz)
+    mel = hz2mel(hz)
+    hz2erb_percepNet = hz2erb_percepNet(hz)
 
-    plt.plot(hz, erb_1983, label="erb_1983")
-    plt.plot(hz, erb_1990, label="erb_1990")
-    plt.plot(hz, erb_1998, label="erb_1998")
+    # plt.plot(hz, erb_1983, label="erb_1983")
+    # plt.plot(hz, erb_1990, label="erb_1990")
+    # plt.plot(hz, erb_1998, label="erb_1998")
     plt.plot(hz, erb_2002, label="erb_2002")
     plt.plot(hz, Hz2erb_matlab, label="Hz2erb_matlab")
     plt.plot(hz, Hz2erb_other, label="Hz2erb_other")
+    # plt.plot(hz, mel, label="mel")
+    plt.plot(hz, hz2erb_percepNet, label="hz2erb_percepNet")
 
     plt.legend()  # 显示图例
     plt.xlabel("Center frequency (Hz)", fontsize=12)  # x轴的名字

@@ -8,11 +8,8 @@ import librosa
 import numpy as np
 import matplotlib.pyplot as plt
 import librosa.display
-from matplotlib.ticker import FuncFormatter
-plt.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
-plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示符号
 
-wav_path = "./p225_001.wav"
+wav_path = "./wav_data/p225_001.wav"
 sr = 16000
 NFFT = 960
 win_length = 960
@@ -32,7 +29,7 @@ fbank = np.zeros((num_filter, int(np.floor(NFFT / 2 + 1))))  # (22,257)
 # 打叉画法(MFCC中的滤波器组是打叉画法)
 for i in range(0, num_filter - 1):
     band_size = (band[i + 1] - band[i]) * 4
-
+    print("band_size", band_size)
     for j in range(band_size):
         frac = j / band_size
         fbank[i, band[i] * 4 + j] = 1 - frac  # 降
@@ -50,15 +47,10 @@ filter_banks = 20 * np.log10(filter_banks)  # dB
 
 plt.figure()
 librosa.display.specshow(filter_banks, sr=sr, x_axis='time', y_axis='linear', cmap="jet")
-plt.xlabel('时间/s', fontsize=14)
-plt.ylabel('频率/kHz', fontsize=14)
+plt.xlabel('Time/s', fontsize=14)
+plt.ylabel('Freq/kHz', fontsize=14)
 plt.xticks(fontsize=14)
 plt.yticks(fontsize=14)
-def formatnum(x, pos):
-    return '$%d$' % (x / 1000)
-
-formatter = FuncFormatter(formatnum)
-plt.gca().yaxis.set_major_formatter(formatter)
 plt.tight_layout()
 plt.show()
 
@@ -74,14 +66,10 @@ for i in range(0, num_filter - 1):
 
 plt.figure()
 librosa.display.specshow(restore_features, sr=sr, x_axis='time', y_axis='linear', cmap="jet")
-plt.xlabel('时间/s', fontsize=14)
-plt.ylabel('频率/kHz', fontsize=14)
+plt.xlabel('Time/s', fontsize=14)
+plt.ylabel('Freq/kHz', fontsize=14)
 plt.xticks(fontsize=14)
 plt.yticks(fontsize=14)
-def formatnum(x, pos):
-    return '$%d$' % (x / 1000)
 
-formatter = FuncFormatter(formatnum)
-plt.gca().yaxis.set_major_formatter(formatter)
 plt.tight_layout()
 plt.show()
